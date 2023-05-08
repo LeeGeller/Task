@@ -11,7 +11,7 @@ public class TodosTests {
     public void shouldAddThreeTasksOfDifferentType() {
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
-        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
+        String[] subtasks = {"Молоко", "Куропатка", "Хлеб"};
         Epic epic = new Epic(55, subtasks);
 
         Meeting meeting = new Meeting(
