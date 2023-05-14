@@ -23,6 +23,7 @@ public class Meeting extends Task {
     }
 
     public String getStart() {
+
         return start;
     }
 

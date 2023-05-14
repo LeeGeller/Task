@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-ManagerFilms,org.netology,Task,41,6,8,0,7,3,8,1,4,1
-ManagerFilms,org.netology,SimpleTask,12,7,2,0,4,3,3,1,2,1
-ManagerFilms,org.netology,Epic,28,7,4,0,5,3,4,1,2,1
-ManagerFilms,org.netology,Meeting,25,13,4,0,8,5,6,1,4,1
-ManagerFilms,org.netology,Todos,31,47,4,2,5,10,3,5,1,4
