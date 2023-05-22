@@ -2,8 +2,6 @@ package org.netology;
 
 import java.util.Objects;
 
-import java.util.Objects;
-
 public class Task {
     protected int id;
 
