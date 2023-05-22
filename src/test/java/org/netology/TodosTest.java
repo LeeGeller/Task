@@ -136,7 +136,7 @@ class TodosTest {
 
         Todos todos = new Todos();
 
-        SimpleTask simpleTask1 = new SimpleTask(1, "Play with cats");
+        SimpleTask simpleTask1 = new SimpleTask(1, "Play with cat");
         SimpleTask simpleTask2 = new SimpleTask(2, "Run");
 
         todos.add(simpleTask1);
