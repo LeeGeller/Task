@@ -164,4 +164,101 @@ class TodosTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void testSimpleTaskQuerry() {
+        SimpleTask simpleTask = new SimpleTask(5, "Оригинальное название");
+        Todos todos = new Todos();
+
+        todos.add(simpleTask);
+
+        Task[] actual = {simpleTask};
+        Task[] expected = todos.search("Оригинальное название");
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void testMeetingQuerry() {
+        Todos todos = new Todos();
+        Meeting meeting = new Meeting(10, "Study", "English", "Today");
+
+        todos.add(meeting);
+
+        Task[] expected = todos.search("English");
+        Task[] actual = {meeting};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void testEpicMatchesQuerry() {
+        Todos todos = new Todos();
+        String[] subtasks = {"eat", "study", "work", "sleep"};
+        Epic epic = new Epic(5, subtasks);
+
+        todos.add(epic);
+
+        Task[] expected = todos.search("work");
+        Task[] actual = {epic};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void testSimpleTaskQuerryNotFind() {
+        SimpleTask simpleTask1 = new SimpleTask(5, "Оригинальное название");
+        SimpleTask simpleTask2 = new SimpleTask(2, "Не оригинальное название");
+        Todos todos = new Todos();
+
+        todos.add(simpleTask1);
+        todos.add(simpleTask2);
+
+        Task[] actual = {};
+        Task[] expected = todos.search("Очень оригинальное название");
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void testSimpleTaskQuerryWithTwoTasks() {
+        SimpleTask simpleTask1 = new SimpleTask(5, "Оригинальное название");
+        SimpleTask simpleTask2 = new SimpleTask(2, "Не оригинальное название");
+        Todos todos = new Todos();
+
+        todos.add(simpleTask1);
+        todos.add(simpleTask2);
+
+        Task[] actual = {simpleTask2};
+        Task[] expected = todos.search("Не оригинальное название");
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void testMeetingQuerryNotFind() {
+        Todos todos = new Todos();
+        Meeting meeting = new Meeting(10, "Study", "English", "Today");
+
+        todos.add(meeting);
+
+        Task[] expected = todos.search("Italy");
+        Task[] actual = {};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void testEpicMatchesQuerryNotFind() {
+        Todos todos = new Todos();
+        String[] subtasks = {"eat", "study", "work", "sleep"};
+        Epic epic = new Epic(5, subtasks);
+
+        todos.add(epic);
+
+        Task[] expected = todos.search("cook");
+        Task[] actual = {};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
 }
