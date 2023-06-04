@@ -261,4 +261,61 @@ class TodosTest {
         Assertions.assertArrayEquals(actual, expected);
     }
 
+    @Test
+    public void testWhenFindOneTask() {
+        Todos todos = new Todos();
+
+        String[] subtasks = {"eat", "study", "work", "sleep"};
+        Epic epic = new Epic(5, subtasks);
+        Meeting meeting = new Meeting(10, "Study", "English", "Today");
+        SimpleTask simpleTask = new SimpleTask(2, "Не оригинальное название");
+
+        todos.add(epic);
+        todos.add(meeting);
+        todos.add(simpleTask);
+
+        Task[] expected = {epic};
+        Task[] actual = todos.search("eat");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testWhenFindSomeTask() {
+        Todos todos = new Todos();
+
+        String[] subtasks = {"eat", "Study", "work", "sleep"};
+        Epic epic = new Epic(5, subtasks);
+        Meeting meeting = new Meeting(10, "Study", "English", "Today");
+        SimpleTask simpleTask = new SimpleTask(2, "Не оригинальное название");
+
+        todos.add(epic);
+        todos.add(meeting);
+        todos.add(simpleTask);
+
+        Task[] expected = {epic, meeting};
+        Task[] actual = todos.search("Study");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testWhenFindNothink() {
+        Todos todos = new Todos();
+
+        String[] subtasks = {"eat", "Study", "work", "sleep"};
+        Epic epic = new Epic(5, subtasks);
+        Meeting meeting = new Meeting(10, "Study", "English", "Today");
+        SimpleTask simpleTask = new SimpleTask(2, "Не оригинальное название");
+
+        todos.add(epic);
+        todos.add(meeting);
+        todos.add(simpleTask);
+
+        Task[] expected = {};
+        Task[] actual = todos.search("Watch YouTube");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
